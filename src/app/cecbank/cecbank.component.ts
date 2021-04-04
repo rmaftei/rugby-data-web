@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Round } from '../model/round'
 
@@ -11,6 +11,7 @@ import { CecbankService } from '../championships/cecbank.service'
 })
 export class CecbankComponent implements OnInit {
 
+  @Input() name: string
   rounds: Round[] = [];
 
   constructor(private cecBankService: CecbankService) {
