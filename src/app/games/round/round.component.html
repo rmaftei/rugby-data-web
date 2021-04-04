@@ -1,0 +1,10 @@
+<div class="card bg-light mb-3">
+    <div class="card-body">
+        <h5 class="card-title text-center">Etapa {{title}}</h5>
+        <app-match *ngFor="let game of games" [homeTeamName]="game.homeTeamName" [homeTeamScore]="game.homeTeamScore"
+            [awayTeamName]="game.awayTeamName" [awayTeamScore]="game.awayTeamScore" [hour]="game.hour"
+            [date]="game.date">
+        </app-match>
+
+    </div>
+</div>
