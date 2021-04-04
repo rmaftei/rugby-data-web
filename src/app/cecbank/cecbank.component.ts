@@ -11,7 +11,7 @@ import { CecbankService } from '../championships/cecbank.service'
 })
 export class CecbankComponent implements OnInit {
 
-  @Input() name: string
+  name: string = "CEC Bank championship"
   rounds: Round[] = [];
 
   constructor(private cecBankService: CecbankService) {
