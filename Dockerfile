@@ -6,11 +6,11 @@ RUN npm install
 RUN npm run ng build --prod
 
 
-FROM nginx:1.19.9-alpine
+FROM node:15.13.0-alpine3.10
 
-COPY --from=builder /opt/dist/rugby-data /var/www
-COPY nginx.conf /etc/nginx/nginx.conf
+RUN npm install -g http-server
+COPY --from=builder /opt/dist/rugby-data /opt/dist/rugby-data
 
-EXPOSE 3000
+EXPOSE $PORT
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD http-server -p $PORT -c-1 /opt/dist/rugby-data
